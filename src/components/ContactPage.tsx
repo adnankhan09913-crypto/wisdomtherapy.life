@@ -93,8 +93,8 @@ export const ContactPage: React.FC = () => {
                   <Mail className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-400 block font-semibold">General & Partnerships:</span>
-                    <a href="mailto:connect@wisdomtherapy.life" className="text-white hover:text-teal-300 font-bold">
-                      connect@wisdomtherapy.life
+                    <a href="mailto:contact@wisdomtherapy.life" className="text-white hover:text-teal-300 font-bold">
+                      contact@wisdomtherapy.life
                     </a>
                   </div>
                 </div>

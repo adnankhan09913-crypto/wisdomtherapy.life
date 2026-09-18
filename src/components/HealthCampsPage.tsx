@@ -577,7 +577,7 @@ export const HealthCampsPage: React.FC = () => {
 
               <div className="pt-6 border-t border-slate-800 text-xs text-slate-400">
                 <p className="font-semibold text-slate-300">Health Camp Operations Desk:</p>
-                <p>connect@wisdomtherapy.life • +92 317 1224411</p>
+                <p>contact@wisdomtherapy.life • +92 317 1224411</p>
               </div>
             </div>
 

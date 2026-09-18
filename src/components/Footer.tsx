@@ -261,8 +261,8 @@ export const Footer: React.FC = () => {
             <div className="mt-6 pt-4 border-t border-slate-800/80 text-xs text-slate-500 space-y-1.5">
               <div className="flex items-center space-x-2">
                 <Mail className="w-3.5 h-3.5 text-slate-400" />
-                <a href="mailto:connect@wisdomtherapy.life" className="hover:text-teal-300 transition-colors">
-                  connect@wisdomtherapy.life
+                <a href="mailto:contact@wisdomtherapy.life" className="hover:text-teal-300 transition-colors">
+                  contact@wisdomtherapy.life
                 </a>
               </div>
               <div className="flex items-center space-x-2">
