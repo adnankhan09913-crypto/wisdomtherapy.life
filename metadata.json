@@ -1,0 +1,6 @@
+{
+  "name": "Wisdom Therapy",
+  "description": "A comprehensive training, wellness, health awareness, and community impact platform connecting people and organizations with practical knowledge, professional learning, and social initiatives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
