@@ -182,17 +182,19 @@ export const ProgramsPage: React.FC = () => {
                   </p>
 
                   {/* Learning Outcomes */}
-                  <div className="space-y-1.5 pt-3 border-t border-slate-100 mb-4">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-700">
-                      Target Competencies:
-                    </p>
-                    {prog.learningOutcomes.slice(0, 3).map((outcome, idx) => (
-                      <div key={idx} className="flex items-start space-x-1.5 text-xs text-slate-600">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{outcome}</span>
-                      </div>
-                    ))}
-                  </div>
+                  {(prog.learningOutcomes || []).length > 0 && (
+                    <div className="space-y-1.5 pt-3 border-t border-slate-100 mb-4">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-slate-700">
+                        Target Competencies:
+                      </p>
+                      {(prog.learningOutcomes || []).slice(0, 3).map((outcome, idx) => (
+                        <div key={idx} className="flex items-start space-x-1.5 text-xs text-slate-600">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0 mt-0.5" />
+                          <span className="line-clamp-1">{outcome}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Program Delivery & Upcoming */}
                   <div className="bg-slate-50 p-3 rounded-xl space-y-1 text-xs text-slate-600">
@@ -279,7 +281,7 @@ export const ProgramsPage: React.FC = () => {
                     Learning Outcomes & Practical Skills
                   </h4>
                   <div className="space-y-2">
-                    {selectedProgram.learningOutcomes.map((item, i) => (
+                    {(selectedProgram.learningOutcomes || []).map((item, i) => (
                       <div key={i} className="flex items-start space-x-2 text-xs text-slate-700">
                         <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
                         <span>{item}</span>
@@ -309,7 +311,7 @@ export const ProgramsPage: React.FC = () => {
                     Upcoming Cohort Dates
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {selectedProgram.upcomingDates.map((d, i) => (
+                    {(selectedProgram.upcomingDates || []).map((d, i) => (
                       <span
                         key={i}
                         className="px-3 py-1.5 rounded-lg bg-teal-50 border border-teal-200 text-teal-900 text-xs font-semibold"

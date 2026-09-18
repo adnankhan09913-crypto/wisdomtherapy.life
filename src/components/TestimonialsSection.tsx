@@ -55,7 +55,7 @@ export const TestimonialsSection: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-1 text-amber-500">
-                    {[...Array(item.rating)].map((_, i) => (
+                    {[...Array(item.rating || 5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>

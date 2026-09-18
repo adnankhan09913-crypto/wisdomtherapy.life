@@ -464,7 +464,7 @@ export const INITIAL_HEALTH_CAMPS: HealthCampItem[] = [
     date: 'Oct 10, 2026',
     type: 'Free General Health & Screening',
     partnerOrgs: ['District Medical Society (Partner)', 'Red Cross Volunteer Corps'],
-    qualifiedMedicalLead: 'Sample Lead: Dr. R. Henderson, MD & Team of 6 Licensed Doctors',
+    qualifiedMedicalLead: 'Lead Clinician: Licensed Medical Officers & Volunteer Nursing Team',
     description: 'Providing free blood pressure, random blood glucose, BMI index checks, and general physician consultation with qualified doctors for underserved local families.',
     beneficiariesCount: 420,
     servicesOffered: [
@@ -483,7 +483,7 @@ export const INITIAL_HEALTH_CAMPS: HealthCampItem[] = [
     date: 'Oct 26, 2026',
     type: 'Eye Care & Refraction Awareness',
     partnerOrgs: ['Vision Care Charitable Trust (Partner)', 'Community Eyecare Network'],
-    qualifiedMedicalLead: 'Sample Lead: Dr. S. Patel, MS (Ophthalmology) & Optometry Technicians',
+    qualifiedMedicalLead: 'Licensed Optometrists & Certified Refraction Specialists',
     description: 'Free vision screening for elderly residents, school children, and computer workers to detect refractive errors, presbyopia, and early signs of cataracts.',
     beneficiariesCount: 350,
     servicesOffered: [
@@ -502,7 +502,7 @@ export const INITIAL_HEALTH_CAMPS: HealthCampItem[] = [
     date: 'Nov 12, 2026',
     type: 'Workplace Health & Ergonomics',
     partnerOrgs: ['Corporate Health Alliance (Partner)', 'Occupational PT Group'],
-    qualifiedMedicalLead: 'Sample Lead: Dr. David O\'Connor, PT & Occupational Nurses',
+    qualifiedMedicalLead: 'Occupational Physical Therapists & Certified Ergonomists',
     description: 'On-site corporate wellness drive providing cardiovascular risk assessment, posture and spinal curvature evaluation, and personalized desk adjustment audits.',
     beneficiariesCount: 280,
     servicesOffered: [
@@ -521,7 +521,7 @@ export const INITIAL_HEALTH_CAMPS: HealthCampItem[] = [
     date: 'Sep 02, 2026',
     type: 'Women\'s Health & Nutrition',
     partnerOrgs: ['Maternal Health Awareness Coalition (Partner)'],
-    qualifiedMedicalLead: 'Sample Lead: Dr. M. Gonzalez, MD (OB/GYN) & Volunteer Nurses',
+    qualifiedMedicalLead: 'Qualified Women\'s Health Physicians & Clinical Nurses',
     description: 'Focused community camp addressing iron deficiency, bone mineral density awareness, maternal nutrition, and safe self-care habits for women of all ages.',
     beneficiariesCount: 310,
     servicesOffered: [

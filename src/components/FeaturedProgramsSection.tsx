@@ -126,20 +126,22 @@ export const FeaturedProgramsSection: React.FC = () => {
                   </p>
 
                   {/* Learning Highlights preview */}
-                  <div className="pt-3 border-t border-slate-100 space-y-1.5 mb-4">
-                    <p className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
-                      Key Takeaways:
-                    </p>
-                    {prog.learningOutcomes.slice(0, 2).map((outcome, idx) => (
-                      <div key={idx} className="flex items-start space-x-1.5 text-xs text-slate-600">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{outcome}</span>
-                      </div>
-                    ))}
-                  </div>
+                  {(prog.learningOutcomes || []).length > 0 && (
+                    <div className="pt-3 border-t border-slate-100 space-y-1.5 mb-4">
+                      <p className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+                        Key Takeaways:
+                      </p>
+                      {(prog.learningOutcomes || []).slice(0, 2).map((outcome, idx) => (
+                        <div key={idx} className="flex items-start space-x-1.5 text-xs text-slate-600">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0 mt-0.5" />
+                          <span className="line-clamp-1">{outcome}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Next Date */}
-                  {prog.upcomingDates[0] && (
+                  {prog.upcomingDates && prog.upcomingDates[0] && (
                     <div className="flex items-center space-x-1.5 text-xs text-slate-500 bg-slate-50 px-3 py-1.5 rounded-lg">
                       <Calendar className="w-3.5 h-3.5 text-teal-600" />
                       <span>Upcoming Cohort: <strong>{prog.upcomingDates[0]}</strong></span>

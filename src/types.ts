@@ -90,12 +90,16 @@ export interface HealthCampItem {
   title: string;
   location: string;
   date: string;
+  time?: string;
   type: string;
   partnerOrgs: string[];
+  partnerHospital?: string;
   qualifiedMedicalLead: string;
   description: string;
   beneficiariesCount: number;
+  beneficiariesExpected?: number;
   servicesOffered: string[];
+  services?: string[];
   status: 'Upcoming' | 'Completed' | 'Open for Volunteers';
   image: string;
 }
