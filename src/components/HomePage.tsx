@@ -4,8 +4,6 @@ import { ImpactStrip } from './ImpactStrip';
 import { PillarsSection } from './PillarsSection';
 import { FeaturedProgramsSection } from './FeaturedProgramsSection';
 import { HealthCampsSection } from './HealthCampsSection';
-import { UpcomingEventsSection } from './UpcomingEventsSection';
-import { ExpertVoicesSection } from './ExpertVoicesSection';
 import { CommunityImpactSection } from './CommunityImpactSection';
 import { TestimonialsSection } from './TestimonialsSection';
 
@@ -17,8 +15,6 @@ export const HomePage: React.FC = () => {
       <PillarsSection />
       <FeaturedProgramsSection />
       <HealthCampsSection />
-      <UpcomingEventsSection />
-      <ExpertVoicesSection />
       <CommunityImpactSection />
       <TestimonialsSection />
     </div>

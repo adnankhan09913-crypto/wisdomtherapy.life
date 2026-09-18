@@ -152,7 +152,7 @@ export const ContactPage: React.FC = () => {
                 </li>
                 <li className="flex items-center space-x-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0" />
-                  <span>Accredited experts receive faculty stipends for all masterclasses</span>
+                  <span>Custom institutional and non-profit syllabi available upon request</span>
                 </li>
               </ul>
             </div>

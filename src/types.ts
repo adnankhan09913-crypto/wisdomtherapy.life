@@ -6,9 +6,6 @@ export type Page =
   | 'wellness'
   | 'health-camps'
   | 'community'
-  | 'experts'
-  | 'events'
-  | 'resources'
   | 'contact'
   | 'admin';
 

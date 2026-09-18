@@ -194,12 +194,19 @@ export const ProgramsPage: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Trainer & Upcoming */}
+                  {/* Program Delivery & Upcoming */}
                   <div className="bg-slate-50 p-3 rounded-xl space-y-1 text-xs text-slate-600">
-                    <div className="flex items-center space-x-1.5 font-medium text-slate-800">
-                      <User className="w-3.5 h-3.5 text-teal-600 shrink-0" />
-                      <span className="line-clamp-1">{prog.trainer}</span>
-                    </div>
+                    {prog.trainer ? (
+                      <div className="flex items-center space-x-1.5 font-medium text-slate-800">
+                        <User className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                        <span className="line-clamp-1">{prog.trainer}</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center space-x-1.5 font-medium text-slate-800">
+                        <Users className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                        <span className="line-clamp-1">Expert Faculty Cohort</span>
+                      </div>
+                    )}
                     {prog.upcomingDates[0] && (
                       <div className="flex items-center space-x-1.5 text-slate-500 text-[11px]">
                         <Calendar className="w-3 h-3 text-teal-600 shrink-0" />
@@ -287,9 +294,13 @@ export const ProgramsPage: React.FC = () => {
                     <span className="text-slate-800 font-bold">{selectedProgram.audience}</span>
                   </div>
                   <div>
-                    <span className="text-slate-500 font-semibold block">Lead Trainer</span>
-                    <span className="text-slate-800 font-bold">{selectedProgram.trainer}</span>
-                    <span className="block text-slate-500 text-[11px]">{selectedProgram.trainerRole}</span>
+                    <span className="text-slate-500 font-semibold block">Instruction & Delivery</span>
+                    <span className="text-slate-800 font-bold">
+                      {selectedProgram.trainer || 'Multidisciplinary Faculty'}
+                    </span>
+                    {selectedProgram.trainerRole && (
+                      <span className="block text-slate-500 text-[11px]">{selectedProgram.trainerRole}</span>
+                    )}
                   </div>
                 </div>
 

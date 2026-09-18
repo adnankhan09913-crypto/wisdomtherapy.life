@@ -1,33 +1,20 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
-import {
-  Search,
-  X,
-  BookOpen,
-  Calendar,
-  UserCheck,
-  FileText,
-  ArrowRight,
-  Sparkles,
-} from 'lucide-react';
+import { Search, X, ArrowRight, BookOpen, HeartPulse } from 'lucide-react';
 
 export const GlobalSearchModal: React.FC = () => {
   const {
     isSearchModalOpen,
     closeSearchModal,
     programs,
-    events,
-    experts,
-    resources,
+    healthCamps,
     setCurrentPage,
     setSelectedProgram,
-    setSelectedEvent,
-    setSelectedExpert,
-    setSelectedResource,
+    setSelectedCamp,
   } = useApp();
 
   const [query, setQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'all' | 'programs' | 'events' | 'experts' | 'resources'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'programs' | 'camps'>('all');
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -43,10 +30,8 @@ export const GlobalSearchModal: React.FC = () => {
     const q = query.trim().toLowerCase();
     if (!q) {
       return {
-        programs: programs.slice(0, 3),
-        events: events.slice(0, 2),
-        experts: experts.slice(0, 3),
-        resources: resources.slice(0, 3),
+        programs: programs.slice(0, 4),
+        camps: healthCamps.slice(0, 3),
       };
     }
 
@@ -57,32 +42,18 @@ export const GlobalSearchModal: React.FC = () => {
           p.category.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q)
       ),
-      events: events.filter(
-        (e) =>
-          e.title.toLowerCase().includes(q) ||
-          e.speaker.toLowerCase().includes(q) ||
-          e.description.toLowerCase().includes(q)
-      ),
-      experts: experts.filter(
-        (ex) =>
-          ex.name.toLowerCase().includes(q) ||
-          ex.category.toLowerCase().includes(q) ||
-          ex.designation.toLowerCase().includes(q) ||
-          ex.expertise.some((s) => s.toLowerCase().includes(q))
-      ),
-      resources: resources.filter(
-        (r) =>
-          r.title.toLowerCase().includes(q) ||
-          r.category.toLowerCase().includes(q) ||
-          r.description.toLowerCase().includes(q)
+      camps: healthCamps.filter(
+        (c) =>
+          c.title.toLowerCase().includes(q) ||
+          c.location.toLowerCase().includes(q) ||
+          c.description.toLowerCase().includes(q)
       ),
     };
-  }, [query, programs, events, experts, resources]);
+  }, [query, programs, healthCamps]);
 
   if (!isSearchModalOpen) return null;
 
-  const totalResults =
-    results.programs.length + results.events.length + results.experts.length + results.resources.length;
+  const totalResults = results.programs.length + results.camps.length;
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-6 md:p-20 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
@@ -95,7 +66,7 @@ export const GlobalSearchModal: React.FC = () => {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search programs, upcoming talks, experts, articles, guides..."
+            placeholder="Search programs, masterclasses, health camps..."
             className="w-full bg-transparent text-slate-800 text-sm sm:text-base focus:outline-none placeholder:text-slate-400 font-medium"
           />
           {query && (
@@ -118,7 +89,7 @@ export const GlobalSearchModal: React.FC = () => {
         {/* Filter Pills */}
         <div className="px-4 py-2.5 border-b border-slate-100 flex items-center space-x-2 text-xs overflow-x-auto bg-white">
           <span className="text-slate-400 font-medium whitespace-nowrap">Filter:</span>
-          {(['all', 'programs', 'events', 'experts', 'resources'] as const).map((tab) => (
+          {(['all', 'programs', 'camps'] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -128,7 +99,7 @@ export const GlobalSearchModal: React.FC = () => {
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              {tab}
+              {tab === 'all' ? 'All Results' : tab === 'programs' ? 'Programs' : 'Health Camps'}
             </button>
           ))}
         </div>
@@ -138,19 +109,19 @@ export const GlobalSearchModal: React.FC = () => {
           {totalResults === 0 ? (
             <div className="py-12 text-center text-slate-500 space-y-2">
               <Search className="w-8 h-8 mx-auto text-slate-300" />
-              <p className="text-sm font-semibold">No direct results found for &quot;{query}&quot;</p>
+              <p className="text-sm font-semibold">No results found for "{query}"</p>
               <p className="text-xs text-slate-400">
-                Try searching for keywords like &quot;AI&quot;, &quot;Wellness&quot;, &quot;Conflict&quot;, or &quot;Health Camp&quot;.
+                Try searching for "Wellness", "AI", "Leadership", "Cardiology", or "Ergonomics".
               </p>
             </div>
           ) : (
             <>
               {/* Programs */}
               {(activeTab === 'all' || activeTab === 'programs') && results.programs.length > 0 && (
-                <div className="pt-2 first:pt-0">
+                <div className="pt-4 first:pt-0">
                   <div className="flex items-center space-x-2 text-xs font-bold text-teal-800 uppercase tracking-wider mb-2">
                     <BookOpen className="w-3.5 h-3.5 text-teal-600" />
-                    <span>Programs ({results.programs.length})</span>
+                    <span>Programs & Masterclasses ({results.programs.length})</span>
                   </div>
                   <div className="space-y-2">
                     {results.programs.map((p) => (
@@ -168,7 +139,7 @@ export const GlobalSearchModal: React.FC = () => {
                             <span className="text-[10px] px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-semibold">
                               {p.category}
                             </span>
-                            <span className="text-xs text-slate-500 font-medium">{p.duration}</span>
+                            <span className="text-xs text-slate-500">{p.duration}</span>
                           </div>
                           <h4 className="text-sm font-bold text-slate-900 group-hover:text-teal-700 mt-1">
                             {p.title}
@@ -182,115 +153,37 @@ export const GlobalSearchModal: React.FC = () => {
                 </div>
               )}
 
-              {/* Events */}
-              {(activeTab === 'all' || activeTab === 'events') && results.events.length > 0 && (
+              {/* Health Camps */}
+              {(activeTab === 'all' || activeTab === 'camps') && results.camps.length > 0 && (
                 <div className="pt-4 first:pt-0">
-                  <div className="flex items-center space-x-2 text-xs font-bold text-indigo-800 uppercase tracking-wider mb-2">
-                    <Calendar className="w-3.5 h-3.5 text-indigo-600" />
-                    <span>Events & Talks ({results.events.length})</span>
+                  <div className="flex items-center space-x-2 text-xs font-bold text-rose-800 uppercase tracking-wider mb-2">
+                    <HeartPulse className="w-3.5 h-3.5 text-rose-600" />
+                    <span>Community Health Camps ({results.camps.length})</span>
                   </div>
                   <div className="space-y-2">
-                    {results.events.map((ev) => (
+                    {results.camps.map((c) => (
                       <div
-                        key={ev.id}
+                        key={c.id}
                         onClick={() => {
-                          setSelectedEvent(ev);
-                          setCurrentPage('events');
+                          setSelectedCamp(c);
+                          setCurrentPage('health-camps');
                           closeSearchModal();
                         }}
-                        className="p-3 rounded-xl border border-slate-100 hover:border-indigo-300 hover:bg-indigo-50/40 cursor-pointer transition-all flex items-start justify-between group"
+                        className="p-3 rounded-xl border border-slate-100 hover:border-rose-300 hover:bg-rose-50/40 cursor-pointer transition-all flex items-start justify-between group"
                       >
                         <div>
                           <div className="flex items-center space-x-2">
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 font-semibold">
-                              {ev.date}
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 font-semibold">
+                              {c.status}
                             </span>
-                            <span className="text-xs text-slate-500">{ev.mode}</span>
+                            <span className="text-xs text-slate-500">{c.date}</span>
                           </div>
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-indigo-700 mt-1">
-                            {ev.title}
+                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-rose-700 mt-1">
+                            {c.title}
                           </h4>
-                          <p className="text-xs text-slate-600 mt-0.5">Speaker: {ev.speaker}</p>
+                          <p className="text-xs text-slate-600 line-clamp-1 mt-0.5">{c.location}</p>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 shrink-0 ml-2 mt-2" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Experts */}
-              {(activeTab === 'all' || activeTab === 'experts') && results.experts.length > 0 && (
-                <div className="pt-4 first:pt-0">
-                  <div className="flex items-center space-x-2 text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">
-                    <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Expert Faculty ({results.experts.length})</span>
-                  </div>
-                  <div className="space-y-2">
-                    {results.experts.map((ex) => (
-                      <div
-                        key={ex.id}
-                        onClick={() => {
-                          setSelectedExpert(ex);
-                          setCurrentPage('experts');
-                          closeSearchModal();
-                        }}
-                        className="p-3 rounded-xl border border-slate-100 hover:border-emerald-300 hover:bg-emerald-50/40 cursor-pointer transition-all flex items-center justify-between group"
-                      >
-                        <div className="flex items-center space-x-3">
-                          <img
-                            src={ex.image}
-                            alt={ex.name}
-                            className="w-10 h-10 rounded-full object-cover border border-slate-200"
-                            referrerPolicy="no-referrer"
-                          />
-                          <div>
-                            <h4 className="text-sm font-bold text-slate-900 group-hover:text-emerald-700">
-                              {ex.name}
-                            </h4>
-                            <p className="text-xs text-slate-600">{ex.designation}</p>
-                          </div>
-                        </div>
-                        <span className="text-[11px] px-2 py-1 rounded bg-slate-100 text-slate-700 font-medium">
-                          {ex.category}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Resources */}
-              {(activeTab === 'all' || activeTab === 'resources') && results.resources.length > 0 && (
-                <div className="pt-4 first:pt-0">
-                  <div className="flex items-center space-x-2 text-xs font-bold text-amber-800 uppercase tracking-wider mb-2">
-                    <FileText className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Knowledge Hub ({results.resources.length})</span>
-                  </div>
-                  <div className="space-y-2">
-                    {results.resources.map((r) => (
-                      <div
-                        key={r.id}
-                        onClick={() => {
-                          setSelectedResource(r);
-                          setCurrentPage('resources');
-                          closeSearchModal();
-                        }}
-                        className="p-3 rounded-xl border border-slate-100 hover:border-amber-300 hover:bg-amber-50/40 cursor-pointer transition-all flex items-start justify-between group"
-                      >
-                        <div>
-                          <div className="flex items-center space-x-2">
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-semibold">
-                              {r.type}
-                            </span>
-                            <span className="text-xs text-slate-500">{r.readTime}</span>
-                          </div>
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-amber-700 mt-1">
-                            {r.title}
-                          </h4>
-                          <p className="text-xs text-slate-600 line-clamp-1 mt-0.5">{r.description}</p>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600 shrink-0 ml-2 mt-2" />
+                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-rose-600 shrink-0 ml-2 mt-2 transition-transform group-hover:translate-x-0.5" />
                       </div>
                     ))}
                   </div>
@@ -303,7 +196,7 @@ export const GlobalSearchModal: React.FC = () => {
         {/* Footer */}
         <div className="p-3 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-500 flex items-center justify-between">
           <span>Wisdom Therapy Search • Press ESC to close</span>
-          <span className="font-semibold text-teal-700">Explore 100+ Topics & Initiatives</span>
+          <span className="font-semibold text-teal-700">Explore Educational Programs & Health Camps</span>
         </div>
       </div>
     </div>

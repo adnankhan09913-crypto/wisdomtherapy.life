@@ -18,9 +18,6 @@ import { TrainingPage } from './components/TrainingPage';
 import { WellnessPage } from './components/WellnessPage';
 import { HealthCampsPage } from './components/HealthCampsPage';
 import { CommunityImpactPage } from './components/CommunityImpactPage';
-import { ExpertsPage } from './components/ExpertsPage';
-import { EventsPage } from './components/EventsPage';
-import { ResourcesPage } from './components/ResourcesPage';
 import { ContactPage } from './components/ContactPage';
 import { AdminDashboard } from './components/AdminDashboard';
 
@@ -48,12 +45,6 @@ const MainContent: React.FC = () => {
         return <HealthCampsPage />;
       case 'community':
         return <CommunityImpactPage />;
-      case 'experts':
-        return <ExpertsPage />;
-      case 'events':
-        return <EventsPage />;
-      case 'resources':
-        return <ResourcesPage />;
       case 'contact':
         return <ContactPage />;
       case 'admin':

@@ -175,26 +175,26 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
                 <button
-                  onClick={() => handleNav('experts')}
+                  onClick={() => handleNav('about')}
                   className="hover:text-teal-300 transition-colors"
                 >
-                  Expert Faculty
+                  About Wisdom Therapy
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('events')}
+                  onClick={() => handleNav('programs')}
                   className="hover:text-teal-300 transition-colors"
                 >
-                  Events Calendar
+                  Programs & Masterclasses
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('resources')}
+                  onClick={() => handleNav('health-camps')}
                   className="hover:text-teal-300 transition-colors"
                 >
-                  Knowledge Hub & Guides
+                  Health Camps & Clinics
                 </button>
               </li>
               <li>
@@ -234,10 +234,10 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('experts')}
+                  onClick={() => openPartnerModal('Healthcare Partners')}
                   className="hover:text-teal-300 transition-colors"
                 >
-                  Become an Expert
+                  Institutional Collaborations
                 </button>
               </li>
               <li>

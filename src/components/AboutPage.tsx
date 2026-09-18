@@ -161,7 +161,7 @@ export const AboutPage: React.FC = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                <span>Connect people with credible multidisciplinary experts without commercial bias.</span>
+                <span>Connect communities with credible health guidance and evidence-based learning without commercial bias.</span>
               </li>
               <li className="flex items-start space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />

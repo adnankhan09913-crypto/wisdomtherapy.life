@@ -128,11 +128,11 @@ export const AdminDashboard: React.FC = () => {
                 <div className="text-[11px] text-amber-600 mt-1 font-semibold">Across public & B2B channels</div>
               </div>
               <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                <div className="text-xs font-bold text-slate-500 uppercase">Faculty Experts</div>
+                <div className="text-xs font-bold text-slate-500 uppercase">Community Health Camps</div>
                 <div className="text-3xl font-black text-slate-900 mt-1 font-heading">
-                  {experts.length}
+                  {healthCamps.length}
                 </div>
-                <div className="text-[11px] text-slate-500 mt-1">Certified active practitioners</div>
+                <div className="text-[11px] text-teal-700 mt-1 font-semibold">Active & scheduled field clinics</div>
               </div>
             </div>
 
@@ -142,7 +142,7 @@ export const AdminDashboard: React.FC = () => {
               <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
-                    Recent Cohort & Event Signups
+                    Recent Cohort & Camp Signups
                   </h3>
                   <button
                     onClick={() => setActiveTab('registrations')}

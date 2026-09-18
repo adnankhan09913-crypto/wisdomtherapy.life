@@ -41,9 +41,6 @@ export const Navbar: React.FC = () => {
     { label: 'WELLNESS', page: 'wellness' },
     { label: 'HEALTH CAMPS', page: 'health-camps' },
     { label: 'COMMUNITY IMPACT', page: 'community' },
-    { label: 'EXPERTS', page: 'experts' },
-    { label: 'EVENTS', page: 'events' },
-    { label: 'RESOURCES', page: 'resources' },
     { label: 'CONTACT', page: 'contact' },
   ];
 
@@ -144,7 +141,7 @@ export const Navbar: React.FC = () => {
               id="header-search-btn"
               onClick={openSearchModal}
               className="p-2 text-slate-400 hover:text-teal-300 hover:bg-slate-800 rounded-lg transition-colors"
-              title="Search across all programs, events, and resources"
+              title="Search across all programs, health camps, and initiatives"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />

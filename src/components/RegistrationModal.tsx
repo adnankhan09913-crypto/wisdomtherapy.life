@@ -18,7 +18,7 @@ export const RegistrationModal: React.FC = () => {
   const [phone, setPhone] = useState('');
   const [organization, setOrganization] = useState('');
   const [designation, setDesignation] = useState('');
-  const [itemType, setItemType] = useState<'program' | 'event' | 'camp'>('program');
+  const [itemType, setItemType] = useState<'program' | 'camp'>('program');
   const [itemId, setItemId] = useState('');
   const [itemName, setItemName] = useState('');
   const [preferredMode, setPreferredMode] = useState('Virtual');
@@ -49,23 +49,17 @@ export const RegistrationModal: React.FC = () => {
     if (itemType === 'program') {
       const match = programs.find((p) => p.id === selectedId);
       if (match) setItemName(match.title);
-    } else if (itemType === 'event') {
-      const match = events.find((ev) => ev.id === selectedId);
-      if (match) setItemName(match.title);
     } else {
       const match = healthCamps.find((c) => c.id === selectedId);
       if (match) setItemName(match.title);
     }
   };
 
-  const handleTypeChange = (type: 'program' | 'event' | 'camp') => {
+  const handleTypeChange = (type: 'program' | 'camp') => {
     setItemType(type);
     if (type === 'program' && programs.length > 0) {
       setItemId(programs[0].id);
       setItemName(programs[0].title);
-    } else if (type === 'event' && events.length > 0) {
-      setItemId(events[0].id);
-      setItemName(events[0].title);
     } else if (type === 'camp' && healthCamps.length > 0) {
       setItemId(healthCamps[0].id);
       setItemName(healthCamps[0].title);
@@ -106,7 +100,7 @@ export const RegistrationModal: React.FC = () => {
             </span>
             <h3 className="text-xl font-bold tracking-tight">Join a Session or Initiative</h3>
             <p className="text-xs text-slate-300 mt-0.5">
-              Secure your place in professional programs, expert talks, or health awareness events.
+              Secure your place in professional programs, workshops, or community health camps.
             </p>
           </div>
           <button
@@ -168,7 +162,7 @@ export const RegistrationModal: React.FC = () => {
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                   Registration Category
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => handleTypeChange('program')}
@@ -178,18 +172,7 @@ export const RegistrationModal: React.FC = () => {
                         : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    Program
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleTypeChange('event')}
-                    className={`py-2 px-3 text-xs font-bold rounded-lg border text-center transition-all ${
-                      itemType === 'event'
-                        ? 'bg-teal-50 border-teal-600 text-teal-800'
-                        : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    Event / Talk
+                    Program / Masterclass
                   </button>
                   <button
                     type="button"
@@ -208,7 +191,7 @@ export const RegistrationModal: React.FC = () => {
               {/* Selection Dropdown */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Selected {itemType === 'program' ? 'Program' : itemType === 'event' ? 'Event' : 'Camp'}
+                  Selected {itemType === 'program' ? 'Program' : 'Health Camp'}
                 </label>
                 <select
                   value={itemId}
@@ -219,12 +202,6 @@ export const RegistrationModal: React.FC = () => {
                     programs.map((p) => (
                       <option key={p.id} value={p.id}>
                         {p.title} ({p.duration})
-                      </option>
-                    ))}
-                  {itemType === 'event' &&
-                    events.map((ev) => (
-                      <option key={ev.id} value={ev.id}>
-                        {ev.title} — {ev.date}
                       </option>
                     ))}
                   {itemType === 'camp' &&
