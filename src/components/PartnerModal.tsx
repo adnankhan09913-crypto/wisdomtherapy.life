@@ -103,7 +103,7 @@ export const PartnerModal: React.FC = () => {
                   inquiry for the <span className="text-teal-700 font-semibold">{selectedType}</span> track.
                 </p>
               </div>
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 text-left space-y-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 text-left space-y-1.5">
                 <p>
                   <strong>Inquiry Reference:</strong> Registered in Central Administrative Queue
                 </p>
@@ -113,6 +113,12 @@ export const PartnerModal: React.FC = () => {
                 <p>
                   <strong>Typical Turnaround:</strong> 2 business days for introductory dialogue
                 </p>
+                <div className="pt-2 border-t border-slate-200 flex items-center space-x-1.5 text-[11px] text-teal-800 font-medium">
+                  <Mail className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                  <span>
+                    Proposal payload and contact record routed to <strong>contact@wisdomtherapy.life</strong>
+                  </span>
+                </div>
               </div>
               <div className="pt-2">
                 <button

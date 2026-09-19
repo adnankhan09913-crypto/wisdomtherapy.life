@@ -171,8 +171,8 @@ export const ContactPage: React.FC = () => {
                     Thank you, <strong className="text-slate-900">{name}</strong>. Your message regarding{' '}
                     <strong className="text-teal-700">{inquiryType}</strong> has been assigned to our administrative team.
                   </p>
-                  <p className="text-xs text-slate-400">
-                    Confirmation has been logged in our system. We typically reply within 24–48 business hours.
+                  <p className="text-xs text-slate-500">
+                    Confirmation has been logged in our system and an automated copy routed to <strong>contact@wisdomtherapy.life</strong>. We typically reply within 24–48 business hours.
                   </p>
                   <button
                     onClick={() => {

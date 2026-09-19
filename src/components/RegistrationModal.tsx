@@ -126,7 +126,7 @@ export const RegistrationModal: React.FC = () => {
                   <span className="text-teal-700 font-semibold">{itemName}</span> has been logged.
                 </p>
               </div>
-              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-500 text-left space-y-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 text-left space-y-1.5">
                 <p>
                   <strong>Registered Email:</strong> {email}
                 </p>
@@ -134,11 +134,14 @@ export const RegistrationModal: React.FC = () => {
                   <strong>Session Mode:</strong> {preferredMode}
                 </p>
                 <p>
-                  <strong>Status:</strong> Confirmed & synced with Admin Dashboard
+                  <strong>Status:</strong> Confirmed & logged to Operations Desk
                 </p>
-                <p className="text-[11px] text-teal-700 pt-1">
-                  *A verification notification architecture is initialized for enterprise mail gateways.
-                </p>
+                <div className="pt-2 border-t border-slate-200 flex items-center space-x-1.5 text-[11px] text-teal-800 font-medium">
+                  <Mail className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                  <span>
+                    A copy of this registration and attendee details have been dispatched to <strong>contact@wisdomtherapy.life</strong>
+                  </span>
+                </div>
               </div>
               <div className="pt-2">
                 <button

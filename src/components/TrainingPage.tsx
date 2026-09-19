@@ -173,7 +173,7 @@ export const TrainingPage: React.FC = () => {
 
               <div className="pt-8 border-t border-slate-800 text-xs text-slate-400">
                 <p className="font-semibold text-slate-300">Direct Corporate Advisory:</p>
-                <p>connect@wisdomtherapy.life • +92 317 1224411</p>
+                <p>contact@wisdomtherapy.life • +92 317 1224411</p>
               </div>
             </div>
 
@@ -190,7 +190,7 @@ export const TrainingPage: React.FC = () => {
                     <strong className="text-slate-900">{organization}</strong> has been received by our enterprise director.
                   </p>
                   <p className="text-xs text-slate-500">
-                    Our lead facilitator will review your cohort requirements ({participantsCount} • {deliveryMode}) and respond with an introductory syllabus within 48 hours.
+                    Our lead facilitator will review your cohort requirements ({participantsCount} • {deliveryMode}) and respond with an introductory syllabus within 48 hours. A copy has been dispatched to <strong>contact@wisdomtherapy.life</strong>.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}

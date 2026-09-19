@@ -594,7 +594,7 @@ export const HealthCampsPage: React.FC = () => {
                     <strong className="text-teal-700">{campType}</strong> in <strong>{location}</strong> has been assigned to our field outreach coordinator.
                   </p>
                   <p className="text-xs text-slate-500">
-                    We will review local medical partner availability and contact you via {email} within 2 business days.
+                    We will review local medical partner availability and contact you via {email} within 2 business days. A record of this camp proposal has been routed to <strong>contact@wisdomtherapy.life</strong>.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
